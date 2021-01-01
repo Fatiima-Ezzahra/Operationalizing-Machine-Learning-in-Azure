@@ -40,36 +40,36 @@ I used the lab Udacity providedto us, so I skipped this step since I'm not autho
 In this step, I created an AutoML experiment to run using the [Bank Marketing](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) Dataset which was loaded in the Azure Workspace, choosing **'y'** as the target column.
 
 *Figure 1: Bank Marketing Dataset*
-![Bank Marketing Dataset](images/Dataset 19-12 15.57.11.png)
+![Bank Marketing Dataset](images/Dataset.png)
 
 For the compute cluster, I used the **Standard_DS12_v2** for the Virtual Machine and 1 as the **minimum number of nodes**.
 
 I ran the experiment using classification, without enabling Deep Learning. The run took some time to test various models and found the best model for the task.
 
 *Figure 2-3-4-5: Create an AutoML experiment*
-![Create an AutoML experiment](images/Create AutoML run 6 19-12 15.56.06.png)
+![Create an AutoML experiment](images/CreateAutoMLrun6.png)
 
-![Create an AutoML experiment](images/Create AutoML run 19-12 15.53.13.png)
+![Create an AutoML experiment](images/CreateAutoMLrun.png)
 
-![Create an AutoML experiment](images/Create AutoML run 5 19-12 15.55.59.png)
+![Create an AutoML experiment](images/CreateAutoMLrun5.png)
 
-![Create an AutoML experiment](images/Create AutoML run 4 19-12 15.55.51.png)
+![Create an AutoML experiment](images/CreateAutoMLrun4.png)
 
 *Figure 6: AutoML run Running*
-![AutoML run](images/AutoML run 2 19-12 15.57.05.png)
+![AutoML run](images/AutoMLrun2.png)
 
 *Figure 7: AutoML run Complete*
-![AutoML run](images/AutoML run 3 19-12 16.47.02.png)
+![AutoML run](images/AutoMLrun3.png)
 
 The best model for this classification problem was a **Voting Ensemble** model with **0.91958** Accuracy.
 
 *Figure 8: Best model*
-![Best model](images/Best model 19-12 16.47.21.png)
+![Best model](images/Bestmodel.png)
 
 *Figure 9-10-11: Best model metrics*
-![Best model metrics](images/Best model metrics 19-12 16.47.39.png)
-![Best model metrics](images/Best model metrics 2 19-12 16.48.23.png)
-![Best model metrics](images/Best model metrics 3 19-12 16.48.39.png)
+![Best model metrics](images/Bestmodelmetrics.png)
+![Best model metrics](images/Bestmodelmetrics2.png)
+![Best model metrics](images/Bestmodelmetrics3.png)
 
 ### Deploy the best model
 To interact with the best chosen model for our task, we need to deploy it. This can be easily done in the Azure Machine Learning Studio, which provides us with an URL to send our test data to.
@@ -77,17 +77,17 @@ To interact with the best chosen model for our task, we need to deploy it. This 
 In this step, we deployed our trained Voting Ensemble model using Azure Container Instance (ACI), with authentication enabled.
 
 *Figure 12-13-14: Deploy the best model*
-![Deploy the best model](images/Deploy best model 19-12 16.53.38.png)
+![Deploy the best model](images/Deploybestmodel.png)
 
-![Deploy the best model](images/Deploy best model 4 19-12 16.57.54.png)
+![Deploy the best model](images/Deploybestmodel4.png)
 
-![Deploy the best model](images/Deployed model 19-12 17.05.20.png)
+![Deploy the best model](images/Deployedmodel.png)
 
 ### Enable logging
 Enabling Application Insights and Logs could have been done at the time of deployment, but for this project we achieved it using Azure Python SDK.
 
 *Figure 15-16-17: Execute logs.py*
-![Execute logs.py](images/logs.py 19-12 17.20.12.png)![Execute logs.py](images/logs.py 2 19-12 17.20.19.png)![Execute logs.py](images/logs.py 3 19-12 17.20.28.png)
+![Execute logs.py](images/logs.py1.png)![Execute logs.py](images/logs.py2.png)![Execute logs.py](images/logs.py3.png)
 
 *Figure 18: Application Insight*
 ![Application Insight](images/Deployedmodel5.png)

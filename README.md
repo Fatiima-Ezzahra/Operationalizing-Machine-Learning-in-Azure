@@ -90,7 +90,7 @@ Enabling Application Insights and Logs could have been done at the time of deplo
 ![Execute logs.py](images/logs.py 19-12 17.20.12.png)![Execute logs.py](images/logs.py 2 19-12 17.20.19.png)![Execute logs.py](images/logs.py 3 19-12 17.20.28.png)
 
 *Figure 18: Application Insight*
-![Application Insight](images/Deployed model 5 19-12 17.26.39.png)
+![Application Insight](images/Deployedmodel5.png)
 
 ### Swagger Documentation
 To consume out best AutoML model using Swagger, we first need to download the **swagger.json** file provided to us in the Endpoints section of Azure Machine Learning Studio.
@@ -98,28 +98,28 @@ To consume out best AutoML model using Swagger, we first need to download the **
 Then we run the **swagger.sh** and **serve.py** files to be able to interact with the swagger instance running with the documentation for the HTTP API of the model.
 
 *Figure 19: Default Swagger page*
-![Default Swagger page](images/localhost 2 19-12 17.31.28.png)
+![Default Swagger page](images/localhost1.png)
 
 *Figure 20-21-22: Swagger documentation for the HTTP API of the model*
-![Swagger documentation for the HTTP API of the model](images/localhost 3 19-12 17.35.59.png)
+![Swagger documentation for the HTTP API of the model](images/localhost.png)
 
-![Swagger documentation for the HTTP API of the model](images/localhost 4 19-12 17.36.15.png)
+![Swagger documentation for the HTTP API of the model](images/localhost2.png)
 
-![Swagger documentation for the HTTP API of the model](images/localhost 5 19-12 17.37.14.png)
+![Swagger documentation for the HTTP API of the model](images/localhost3.png)
 
 ### Consume model endpoints
 Finally, it's time to interact with the model and feed some test data to it. We do this by providing the **scoring_uri** and the **key** to the **endpoint.py** script and running it.
 
 *Figure 23: Consume the endpoint*
-![Consume the endpoint](images/endpoint.py 19-12 17.41.52.png)
+![Consume the endpoint](images/endpoint.py1.png)
 
 #### (Optional) Benchmark
 To do this, we make sure **Apache Benchmark** is installed and available. After executing the **endpoint.py** script, we run the **benchmark.sh** scripe to load-test our deployed model.
 
 *Figure 24-25-26: Benchmark*
-![Benchmark](images/benchmark.sh 2 19-12 17.46.05.png)
-![Benchmark](images/benchmark.sh 3 19-12 17.46.20.png)
-![Benchmark](images/benchmark.sh 3 19-12 17.46.55.png)![Benchmark](images/benchmark.sh 4 19-12 17.46.58.png)
+![Benchmark](images/benchmark.sh2.png)
+![Benchmark](images/benchmark.sh3.png)
+![Benchmark](images/benchmark.sh4.png)![Benchmark](images/benchmark.sh5.png)
 
 ### Create and publish a pipeline
 For this step, I used the **aml-pipelines-with-automated-machine-learning-step** Jupyter Notebook to create a **Pipeline**

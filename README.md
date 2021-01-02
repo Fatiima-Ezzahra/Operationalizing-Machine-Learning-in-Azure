@@ -26,15 +26,15 @@ These are the steps we followed in this project :
 1. **Authentication** : In this step, we need to create a Security Principal (SP) to interact with the Azure Workspace.
 2. **Automated ML Experiment** : In this step, we create an experiment using Automated ML, configure a compute cluster, and use that cluster to run the experiment.
 3. **Deploy the best model** : Deploying the Best Model will allow us to interact with the HTTP API service and interact with the model by sending data over POST requests.
-4. **Enable logging** : Logging helps monitore our deployed model. It helps us know the number of requests it gets, the time each request takes, etc.
+4. **Enable logging** : Logging helps monitor our deployed model. It helps us know the number of requests it gets, the time each request takes, etc.
 5. **Swagger Documentation** : In this step, we consume the deployed model using Swagger.
 6. **Consume model endpoints** : We interact with the endpoint using some test data to get inference.
-7. **Create and publish a pipeline**
+7. **Create and publish a pipeline** : In this step, we automate this workflow by creating a pipeline with the Python SDK.
 
 ## Key Steps
 
 ### Authentication
-I used the lab Udacity providedto us, so I skipped this step since I'm not authorized to create a security principal.
+I used the lab Udacity provided to us, so I skipped this step since I'm not authorized to create a security principal.
 
 ### Automated ML Experiment
 In this step, I created an AutoML experiment to run using the [Bank Marketing](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) Dataset which was loaded in the Azure Workspace, choosing **'y'** as the target column.
@@ -47,15 +47,15 @@ For the compute cluster, I used the **Standard_DS12_v2** for the Virtual Machine
 I ran the experiment using classification, without enabling Deep Learning. The run took some time to test various models and found the best model for the task.
 
 *Figure 2-3-4-5: Create an AutoML experiment*
-![Create an AutoML experiment](images/CreateAutoMLrun6.png)
-
 ![Create an AutoML experiment](images/CreateAutoMLrun.png)
+
+![Create an AutoML experiment](images/CreateAutoMLrun6.png)
 
 ![Create an AutoML experiment](images/CreateAutoMLrun5.png)
 
 ![Create an AutoML experiment](images/CreateAutoMLrun4.png)
 
-*Figure 6: AutoML run Running*
+*Figure 6: AutoML run*
 ![AutoML run](images/AutoMLrun2.png)
 
 *Figure 7: AutoML run Complete*
@@ -76,11 +76,12 @@ To interact with the best chosen model for our task, we need to deploy it. This 
 
 In this step, we deployed our trained Voting Ensemble model using Azure Container Instance (ACI), with authentication enabled.
 
-*Figure 12-13-14: Deploy the best model*
+*Figure 12-13: Deploy the best model*
 ![Deploy the best model](images/Deploybestmodel.png)
 
 ![Deploy the best model](images/Deploybestmodel4.png)
 
+*Figure 14: Endpoint*
 ![Deploy the best model](images/Deployedmodel.png)
 
 ### Enable logging
@@ -93,7 +94,7 @@ Enabling Application Insights and Logs could have been done at the time of deplo
 ![Application Insight](images/Deployedmodel5.png)
 
 ### Swagger Documentation
-To consume out best AutoML model using Swagger, we first need to download the **swagger.json** file provided to us in the Endpoints section of Azure Machine Learning Studio.
+To consume our best AutoML model using Swagger, we first need to download the **swagger.json** file provided to us in the Endpoints section of Azure Machine Learning Studio.
 
 Then we run the **swagger.sh** and **serve.py** files to be able to interact with the swagger instance running with the documentation for the HTTP API of the model.
 
@@ -126,13 +127,28 @@ For this step, I used the **aml-pipelines-with-automated-machine-learning-step**
 
 I created, consumed and published the best model for the bank marketing dataset using AutoML with Python SDK.
 
+*Figure 27: Create a Pipeline in the SDK*
+![Pipeline SDK](images/PipelineSDK.png)
 
+*Figure 28: Pipeline in Azure Studio*
+![Pipeline Studio](images/PipelineStudio4.png)
 
+*Figure 29: Pipeline Overview in Azure Studio*
+![Pipeline Overview](images/PipelineStudio2.png)
 
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
+*Figure 30-31-32: Create the REST endpoint*
+![Pipeline Endpoint](images/PipelineEndpoint2.png)
+
+![Pipeline Endpoint](images/PipelineEndpoint.png)
+
+![Published Pipeline](images/PublishedPipeline.png)
 
 ## Screen Recording
-*TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
 
 ## Standout Suggestions
-*TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.
+One thing that stood out to me when creating an AutoML run was the imbalanced data issue. This can lead to biased prediction, which can affect negatively the model's accuracy. Another suggestion is enabling Deep Learning. This will take more time to run, but can improve the results by training and testing more models .
+
+*Figure 33-34: Imbalanced Data*
+![Suggestions](images/AutoMLrunData.png)
+
+![Suggestions](images/AutoMLrunData2.png)

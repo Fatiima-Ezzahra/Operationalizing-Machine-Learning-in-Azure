@@ -177,7 +177,7 @@ This is the REST endpoint in Azure ML Studio, with a status of ACTIVE.
 
 ## Screen Recording
 [Youtube Link](https://www.youtube.com/embed/xXjspFEyZnY)
-[Subtitles](https://drive.google.com/file/d/1urtaKvpkmQr-1t5N8SGM42FD4NZKKts_/view?usp=sharing)
+<!--[Subtitles](https://drive.google.com/file/d/1urtaKvpkmQr-1t5N8SGM42FD4NZKKts_/view?usp=sharing)-->
 
 ## Standout Suggestions
 One thing that stood out to me when creating an AutoML run was the imbalanced data issue. This can lead to biased prediction, which can affect negatively the model's accuracy. Another suggestion is enabling Deep Learning. This will take more time to run, but can improve the results by training and testing more models .
